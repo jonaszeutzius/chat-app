@@ -2,7 +2,7 @@ const path = require('path')
 const http = require('http')
 const express = require('express')
 const socketio = require('socket.io')
-// const Filter = require('bad-words')
+const Filter = require('bad-words')
 const { generateMessage, generateLocationMessage } = require('./utils/messages')
 const {addUser, removeUser, getUser, getUsersInRoom} = require('./utils/users')
 
@@ -38,7 +38,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on('sendMessage', (message, callback) => {
-        const filter = new Filter()
+        // const filter = new Filter()
         const user = getUser(socket.id)
 
         // if (filter.isProfane(message)) {
